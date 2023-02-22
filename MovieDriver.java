@@ -3,45 +3,55 @@ import java.util.Scanner;
 public class MovieDriver 
 {
 	public static void main(String[] args) 
-	{   //creating a movie object
-		Movie movieObject=new Movie();
-		// creating a scanner object for user input
-		Scanner myInput=new Scanner(System.in);
-		// string to store the title of the movie
-		String movieTitle;
-		//string to store the Rating of the movie
-		String movieRating;
-		//string to store the user's yes or no response
-		String selection;
+	{   //movie object
+		Movie objectMovie=new Movie();
+		// scanner object 
+		Scanner userInput=new Scanner(System.in);
+		// string for movie title 
+		String theMovieTitle;
+		//string for the movie rating
+		String ratingOfMovie;
+		//string for response
+		String reply;
 		// while loop for user input
 		while(true) 
-		{	//ask user for the name of the movie
+		{	//display message to user
 			System.out.println("Please enter the name of the movie ");			
-			//store the imput in the movieTitle string
-			movieTitle=myInput.nextLine();
-			//uses the movie object to call setTitle method 
-			movieObject.setTitle(movieTitle);
-			//ask user for rating of movie
+			
+			//store the input 
+			theMovieTitle=userInput.nextLine();
+			
+			//call setTitle method 
+			objectMovie.setTitle(theMovieTitle);
+			
+			//ask user for movie rating
 			System.out.println("Please enter the rating of the movie. (G, PG,PG13,R) ");
-			// store input in movieRating String
-			movieRating=myInput.nextLine();
+			
+			// store input
+			ratingOfMovie=userInput.nextLine();
+			
 			// uses the movie object to call the set rating method 
-			movieObject.setRating(movieRating);
+			objectMovie.setRating(ratingOfMovie);
+			
 			// ask user for number of tickets sold
-			System.out.println("How many tickets were sold for this movie? ");//asking user to enter number of tickets
+			System.out.println("Enter the number of tickets that were sold for this movie? ");
 			
-			int thetickets=Integer.parseInt(myInput.nextLine());
+			// create movie ticket int and sets to what the return of the parseInt
+			int movieTickets=Integer.parseInt(userInput.nextLine());
 			
-			movieObject.setSoldTickets(thetickets);
+
+				objectMovie.setSoldTickets(movieTickets);
 			
-			System.out.println(movieObject.toString());
+			System.out.println(objectMovie.toString());
 			
-			System.out.println("\nWant to enter another number? (yes or no)");
+			System.out.println("\nWant to enter another movie? (yes or no)");
 			
-			selection =myInput.nextLine();
+			reply=userInput.nextLine();
 			
-			if(selection.equals("yes")|| selection.equals("Yes")|| selection.equals("YES"))
+			if(reply.equalsIgnoreCase("YES"))
+			//sends the program back to the beginning of the while loop	
 			continue;
+			// ends the program 
 			else
 			break;
 		}
@@ -50,9 +60,3 @@ public class MovieDriver
 
 }
 	
-	
-	
-	
-	
-	
-		
